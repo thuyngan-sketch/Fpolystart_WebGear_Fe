@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+}
+
+.head-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background: #eee;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.head-title h1 {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+}
+
+.breadcrumb li {
+    margin: 0 10px;
+    color: #342E37; /* Màu tối */
+}
+
+.breadcrumb li a {
+    text-decoration: none;
+    color: #AAAAAA; /* Màu xám tối */
+}
+
+.breadcrumb li a.active {
+    color: #3C91E6; /* Màu xanh */
+}
+
+.table-container {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-container input {
+    padding-right: 40px; 
+}
+
+.search-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}

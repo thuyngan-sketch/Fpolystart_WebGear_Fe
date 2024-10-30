@@ -1,0 +1,41 @@
+<div class="head-title">
+    <div class="left">
+        <h1>Vouchers</h1>
+        <ul class="breadcrumb">
+            <li>
+                <a routerLink="/vouchers">Vouchers</a>
+            </li>
+            <li><i class='bx bx-chevron-right'></i></li>
+            <li>
+                <a class="active">Thêm Mã Giảm Giá</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="container">
+    <div class="form-container">
+        <h2>Thêm Mã Giảm Giá</h2>
+        <form (ngSubmit)="onSubmit()" #discountForm="ngForm">
+            <div class="mb-3">
+                <label for="discountCode" class="form-label">Mã Giảm Giá</label>
+                <input type="text" class="form-control" id="discountCode" [(ngModel)]="discount.code" name="discountCode" required>
+            </div>
+            <div class="mb-3">
+                <label for="startDate" class="form-label">Ngày Bắt Đầu</label>
+                <input type="date" class="form-control" id="startDate" [(ngModel)]="discount.startDate" name="startDate" required>
+            </div>
+            <div class="mb-3">
+                <label for="endDate" class="form-label">Ngày Kết Thúc</label>
+                <input type="date" class="form-control" id="endDate" [(ngModel)]="discount.endDate" name="endDate" required>
+            </div>
+            <div class="mb-3">
+                <label for="discountPercentage" class="form-label">Giảm Giá (%)</label>
+                <input type="number" class="form-control" id="discountPercentage" [(ngModel)]="discount.percentage" name="discountPercentage" required min="0" max="100">
+            </div>
+            <div class="button-group">
+                <button type="submit" class="btn btn-success">Lưu Mã Giảm Giá</button>
+                <button type="button" class="btn btn-danger" routerLink="/vouchers">Thoát</button>
+            </div>
+        </form>
+    </div>
+</div>

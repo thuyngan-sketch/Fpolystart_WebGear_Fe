@@ -1,0 +1,72 @@
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    background: #FFFFFF; /* Light color */
+    color: #342E37; /* Dark color */
+}
+
+.head-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background: #eee; /* Light color */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.head-title h1 {
+    font-size: 32px;
+    font-weight: 600;
+    margin: 15px;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+}
+
+.breadcrumb li {
+    margin: 0 10px;
+    color: #342E37; /* Dark color */
+}
+
+.breadcrumb li a {
+    text-decoration: none;
+    color: #AAAAAA; /* Dark grey color */
+}
+
+.breadcrumb li a.active {
+    color: #3C91E6; /* Blue color */
+}
+
+.table-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 1000px; /* Adjusted width */
+    margin: auto; /* Center the container */
+}
+
+.table-container h2 {
+    font-size: 18px; /* Adjusted header size */
+}
+
+.table {
+    font-size: 14px; /* Smaller font size for the table */
+}
+
+.form-label {
+    font-size: 14px; /* Smaller font size for the label */
+}
+
+.form-select {
+    font-size: 14px; /* Smaller font size for the select box */
+    height: 50px; /* Smaller height */
+}
+
+#revenueChart {
+    height: 250px; /* Set chart height */
+}

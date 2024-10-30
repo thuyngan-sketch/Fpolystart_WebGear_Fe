@@ -1,0 +1,73 @@
+<div class="head-title">
+    <div class="left">
+        <h1>Home</h1>
+        <ul class="breadcrumb">
+            <li>
+                <a href="#">Home</a>
+            </li>
+            <li><i class='bx bx-chevron-right' style="box-shadow: 0 0 5px wheat;"></i></li>
+            <li>
+                <a class="active" href="#">Dashboard</a>
+            </li>
+        </ul>
+    </div>
+    <a href="#" class="btn-download">
+        <i class='bx bxs-cloud-download'></i>
+        <span class="text">Download PDF</span>
+    </a>
+</div>
+<div>
+    <ul class="box-info">
+        <li *ngFor="let item of boxInfo">
+            <i [class]="item.icon"></i>
+            <span class="text">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.value }}</p>
+            </span>
+        </li>
+    </ul>
+</div>
+<div class="carte">
+    <h2 style="color: #0A99F8;">Đơn hàng cần xác nhận</h2>
+    <div id="order-list">
+        <table>
+            <thead>
+                <tr>
+                    <th>Khách Hàng</th>
+                    <th>Ngày Đặt Hàng</th>
+                    <th>Giỏ Hàng</th>
+                    <th>Trạng Thái</th>
+                    <th>Thao Tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of orders">
+                    <td>{{ order.customer }}</td>
+                    <td>{{ order.date }}</td>
+                    <td>{{ order.cart }}</td>
+                    <td>{{ order.status }}</td>
+                    <td>
+                        <div class="action-icons">
+                            <i class='bx bx-show' (click)="toggleViewIcon($event)"></i>
+                            <i class='bx bx-checkbox' (click)="confirmOrder(order)"></i>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="orders.length === 0" class="no-orders" style="text-align: center; padding-top: 16px;">
+        Bạn không còn đơn hàng nào cần xác nhận.
+    </div>
+</div>
+<br>
+<br>
+<div class="container" style="color: #0A99F8;">
+    <div class="chart-container">
+        <canvas id="mixedChart"></canvas>
+    </div>
+    <div class="doughnut-chart-container">
+        <canvas id="doughnutChart"></canvas>
+    </div>
+</div>
+

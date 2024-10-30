@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #FFFFFF;
+    color: #342E37;
+}
+
+.head-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.head-title h1 {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+}
+
+.breadcrumb li {
+    margin: 0 10px;
+    color: #342E37;
+}
+
+.breadcrumb li a {
+    text-decoration: none;
+    color: #AAAAAA;
+}
+
+.breadcrumb li a.active {
+    color: #3C91E6;
+}
+
+.carte {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.image-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    border: 1px dashed #eee;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    max-width: 200px;
+    margin: auto;
+}
+
+.image-upload img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.image-upload label {
+    display: flex;
+    align-items: center;
+    background-color: #3C91E6;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.image-upload label:hover {
+    background-color: #2a70b0;
+}
+
+.btn {
+    padding: 10px 15px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn-save {
+    background-color: #3C91E6;
+}
+
+.btn-save:hover {
+    background-color: #2a70b0;
+}
+
+.btn-cancel {
+    background-color: #dc3545;
+}
+
+.btn-cancel:hover {
+    background-color: #c82333;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}

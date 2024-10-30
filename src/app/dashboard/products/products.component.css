@@ -1,0 +1,145 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #eee;
+    margin: 0;
+    padding: 20px;
+    color: #342E37; /* --dark */
+}
+
+.head-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background: #eee; /* --light */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.head-title h1 {
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0;
+    color: #0A99F8; /* --blue */
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+}
+
+.breadcrumb li {
+    margin: 0 10px;
+    color: #342E37; /* --dark */
+}
+
+.breadcrumb li a {
+    text-decoration: none;
+    color: #AAAAAA; /* --dark-grey */
+}
+
+.breadcrumb li a.active {
+    color: #0A99F8; /* --blue */
+}
+
+.carte {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-add {
+    display: block;
+    width: 200px;
+    margin: 0 auto 20px;
+    padding: 10px;
+    background-color: #3C91E6; /* --blue */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn-add:hover {
+    background-color: #2a70b0; /* Màu khi hover */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #eee; /* --grey */
+}
+
+th {
+    background-color: #CFE8FF; /* --light-blue */
+    color: #342E37; /* --dark */
+}
+
+tr:hover {
+    background-color: #FFE0D3; /* --light-orange */
+}
+
+.action-icons {
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.action-icons i {
+    transition: color 0.3s;
+}
+
+.action-icons i:hover {
+    color: #0A99F8; /* --blue */
+}
+
+.toggle {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.toggle input {
+    display: none;
+}
+
+.toggle-label {
+    width: 40px;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 20px;
+    position: relative;
+    transition: background-color 0.2s;
+}
+
+.toggle-label::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.2s;
+}
+
+input:checked + .toggle-label {
+    background-color: #3C91E6; /* --blue */
+}
+
+input:checked + .toggle-label::after {
+    transform: translateX(20px);
+}

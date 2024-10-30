@@ -1,0 +1,48 @@
+<div class="head-title">
+    <div class="left">
+        <h1>Products</h1>
+        <ul class="breadcrumb">
+            <li><a href="#">Products</a></li>
+            <li><i class='bx bx-chevron-right'></i></li>
+            <li><a class="active" href="#">Quản Lý Sản Phẩm</a></li>
+        </ul>
+    </div>
+</div>
+<br>
+<div class="carte">
+    <button class="btn-add" (click)="addProduct()">Thêm Sản Phẩm Mới +</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Ảnh</th>
+                <th>Tên Sản Phẩm</th>
+                <th>Loại Sản Phẩm</th>
+                <th>Giá Gốc</th>
+                <th>Giảm Giá</th>
+                <th>Flash Sale</th>
+                <th>Thao Tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products; let i = index">
+                <td><img [src]="product.image" alt="{{ product.name }}" style="width: 50px;"></td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.type }}</td>
+                <td>{{ product.originalPrice | currency:'VND' }}</td>
+                <td>{{ product.discount }}%</td>
+                <td>
+                    <div class="toggle">
+                        <input type="checkbox" [id]="'flashSale' + i" [(ngModel)]="product.flashSale" (change)="toggleFlashSale(product)">
+                        <label [for]="'flashSale' + i" class="toggle-label"></label>
+                    </div>
+                </td>
+                <td class="action-icons">
+                    <i class='bx bx-show' (click)="showProduct(product)"></i>
+                    <i class='bx bx-edit' (click)="editProduct(product.id)"></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br>

@@ -1,0 +1,22 @@
+<div>
+    <h2>Send Email</h2>
+    <form (ngSubmit)="sendEmail()">
+      <label for="mailTo">To:</label>
+      <input type="email" id="mailTo" [(ngModel)]="mailTo" name="mailTo" required>
+  
+      <label for="subject">Subject:</label>
+      <input type="text" id="subject" [(ngModel)]="subject" name="subject" required>
+  
+      <label for="body">Body:</label>
+      <textarea id="body" [(ngModel)]="body" name="body" required></textarea>
+  
+      <label for="attachment">Attachment:</label>
+      <input type="file" id="attachment" (change)="onFileChange($event)">
+  
+      <button type="submit">Send Email</button>
+    </form>
+  
+    <h2>Send Welcome Email</h2>
+    <button (click)="sendWelcomeEmail()">Send Welcome Email</button>
+  </div>
+  

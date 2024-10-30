@@ -1,0 +1,47 @@
+<div class="head-title">
+    <div class="left">
+        <h1>Vouchers</h1>
+        <ul class="breadcrumb">
+            <li>
+                <a routerLink="/vouchers">Vouchers</a>
+            </li>
+            <li><i class='bx bx-chevron-right'></i></li>
+            <li>
+                <a class="active" >Vouchers</a>
+            </li>
+        </ul>
+    </div>
+    <button class="btn btn-success btn-add" routerLink="/app-add-vouchers">Thêm Mã Giảm Giá + </button>
+</div>
+<div class="table-container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Mã Giảm Giá</th>
+                <th>Ngày Bắt Đầu</th>
+                <th>Ngày Kết Thúc</th>
+                <th>Giảm Giá (%)</th>
+                <th>Thao Tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let discount of discounts; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ discount.code }}</td>
+                <td>{{ discount.startDate }}</td>
+                <td>{{ discount.endDate }}</td>
+                <td>{{ discount.discountPercentage }}%</td>
+                <td>
+                    <button class="btn btn-warning btn-sm" (click)="editDiscount(discount.code)">
+                        <i class='bx bx-edit'></i>
+                    </button>
+                    <button class="btn btn-danger btn-sm" (click)="deleteDiscount(discount.code)">
+                        <i class='bx bx-trash'></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br>

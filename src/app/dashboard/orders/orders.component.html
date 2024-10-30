@@ -1,0 +1,43 @@
+<div class="head-title">
+    <div class="left">
+        <h1>Orders</h1>
+        <ul class="breadcrumb">
+            <li><a href="#">Orders</a></li>
+            <li><i class='bx bx-chevron-right'></i></li>
+            <li><a class="active" href="#">Orders</a></li>
+        </ul>
+    </div>
+</div>
+<br>
+<div class="table-container">
+    <div class="mb-3 search-container">
+        <input type="text" class="form-control" [(ngModel)]="searchTerm" placeholder="Tìm kiếm đơn hàng..." (input)="filterOrders()">
+        <i class='bx bx-search search-icon'></i>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID Đơn Hàng</th>
+                <th>Tên Khách Hàng</th>
+                <th>Sản Phẩm</th>
+                <th>Trạng Thái</th>
+                <th>Ngày Đặt</th>
+                <th>Thao Tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let order of filteredOrders">
+                <td>{{ order.id }}</td>
+                <td>{{ order.customerName }}</td>
+                <td>{{ order.product }}</td>
+                <td><span class="badge" [ngClass]="{'bg-success': order.status === 'Đã Giao', 'bg-warning': order.status === 'Đang Xử Lý'}">{{ order.status }}</span></td>
+                <td>{{ order.orderDate | date }}</td>
+                <td>
+                    <button class="btn btn-info btn-sm" (click)="viewOrder(order.id)"><i class='bx bx-show'></i></button>
+                    <button class="btn btn-warning btn-sm" (click)="editOrder(order.id)"><i class='bx bx-edit'></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br>

@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #FFFFFF; /* Light color */
+    color: #342E37; /* Dark color */
+}
+
+.head-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background: #eee; /* Light color */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.head-title h1 {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.breadcrumb li {
+    margin: 0 10px;
+    color: #342E37; /* Dark color */
+}
+
+.breadcrumb li a {
+    text-decoration: none;
+    color: #AAAAAA; /* Dark grey color */
+}
+
+.breadcrumb li a.active {
+    color: #0A99F8; /* Blue color */
+}
+
+.btn-add {
+    margin-left: 20px;
+}
+
+.table-container {
+    margin-top: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #f8f9fa; /* Light grey for header */
+    font-weight: bold;
+}
+
+.table-striped tbody tr:nth-child(odd) {
+    background-color: #f2f2f2; /* Light grey for odd rows */
+}
+
+.table-striped tbody tr:hover {
+    background-color: #e9ecef; /* Light grey on hover */
+}
+
+.btn-warning {
+    margin-right: 5px; /* Space between edit and delete buttons */
+}
+
+.btn-danger {
+    margin-right: 5px; /* Space between buttons */
+}

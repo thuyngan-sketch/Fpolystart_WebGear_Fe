@@ -1,0 +1,46 @@
+<div class="head-title">
+    <div class="left">
+        <h1>Analytics</h1>
+        <ul class="breadcrumb">
+            <li><a href="#">Analytics</a></li>
+            <li><i class='bx bx-chevron-right'></i></li>
+            <li><a class="active" href="#">Thống Kê Doanh Thu</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="mb-4" style="max-width: 100px; margin-left: 986px;"> <!-- Adjusted width -->
+    <label for="monthSelect" class="form-label" style="font-size: 14px;">Chọn Tháng</label>
+    <select id="monthSelect" class="form-select" [(ngModel)]="selectedMonth" (change)="updateStats()" style="font-size: 14px; height: 30px;">
+        <option value="0">Tất cả</option>
+        <option *ngFor="let month of [1,2,3,4,5,6,7,8,9,10,11,12]" [value]="month">Tháng {{ month }}</option>
+    </select>
+    
+</div>
+
+<div class="mb-4" style="background-color: white;margin-left: 15px;margin-right: 15px;border-radius: 15px;">
+    <canvas id="revenueChart"></canvas>
+</div>
+<br>
+<div class="table-container">
+    <h2>Bảng Thống Kê Doanh Thu</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Tháng</th>
+                <th>Tổng Doanh Thu (VNĐ)</th>
+                <th>Số Lượng Đơn Hàng Đã Xác Nhận</th>
+                <th>Số Lượng Đơn Hàng Chưa Xác Nhận</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of filteredData">
+                <td>{{ data.month }}</td>
+                <td>{{ data.revenue | number:'1.0-0' }} VNĐ</td>
+                <td>{{ data.confirmedOrders }}</td>
+                <td>{{ data.unconfirmedOrders }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br>

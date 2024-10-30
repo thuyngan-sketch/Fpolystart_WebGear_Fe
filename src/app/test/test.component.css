@@ -1,0 +1,9 @@
+.image-container {
+    overflow: hidden;
+    height: 200px; /* Chiều cao của ảnh */
+  }
+  
+  .card-img-top {
+    transition: transform 0.5s ease;
+  }
+  
