@@ -1,32 +1,56 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProductService } from 'src/app/product.service';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
-export class ProductsComponent {
-  constructor(private router: Router) {}
-  products = [
-    { id: 1, image: 'img1.jpg', name: 'Sản phẩm 1', type: 'Loại 1', originalPrice: 100000, discount: 20, flashSale: true },
-    { id: 2, image: 'img2.jpg', name: 'Sản phẩm 2', type: 'Loại 2', originalPrice: 200000, discount: 10, flashSale: false },
-];
+export class ProductsComponent implements OnInit{
+  products: any = { Keyboards: [], Mice: [] }; // Lưu kết quả từ 2 API
 
-addProduct() {
-    // Logic để thêm sản phẩm mới
-    window.location.href = 'app-add-products';
-}
+  constructor(private productService: ProductService) {}
 
-toggleFlashSale(product: any) {
-    product.flashSale = !product.flashSale;
-}
+  ngOnInit(): void {
+    this.loadProducts();
+  }
 
-showProduct(product: any) {
+  loadProducts() {
+    const keyboardRequest = { page: 1 };  // Tham số cho API bàn phím
+    const mouseRequest = { page: 1 };    // Tham số cho API chuột
+
+    // Gọi API đồng thời để lấy danh sách bàn phím và chuột
+    this.productService.getAllProducts(keyboardRequest, mouseRequest).subscribe({
+      next: (results) => {
+        this.products.Keyboards = results[0]; // Kết quả từ API bàn phím
+        this.products.Mice = results[1];      // Kết quả từ API chuột
+      },
+      error: (err) => {
+        console.error('Có lỗi xảy ra khi lấy dữ liệu:', err);
+      }
+    });
+  }
+  showProduct(product: any) {
     alert(`Hiện thông tin sản phẩm: ${product.name}`);
 }
 
 editProduct(id: number) {
     window.location.href = 'edit-product/:id';
 }
+
+showModal: boolean = false; // Điều khiển trạng thái hiển thị modal
+
+  // Mở modal khi nhấn nút "Thêm"
+  openModal() {
+    this.showModal = true;
+  }
+
+  // Đóng modal
+  closeModal() {
+    this.showModal = false;
+  }
 }
+
+
+

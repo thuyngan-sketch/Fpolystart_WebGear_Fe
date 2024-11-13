@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   boxInfo = [
-    { title: 'Sản phẩm', value: 28, icon: 'bx bx-calendar-plus' },
-    { title: 'Đơn hàng', value: 16, icon: 'bx bxs-cart-add' },
-    { title: 'Doanh thu', value: '6,868,686', icon: 'bx bx-bar-chart-alt' },
-    { title: 'Phản hồi', value: 22, icon: 'bx bx-message-alt-dots' }
+    { title: 'Sản phẩm', value: 28, icon: 'bx bx-calendar-plus', route: '/products' },
+    { title: 'Đơn hàng', value: 16, icon: 'bx bxs-cart-add', route: '/orders' },
+    { title: 'Doanh thu', value: '6,868,686', icon: 'bx bx-bar-chart-alt', route: '/analytics' },
+    { title: 'Phản hồi', value: 22, icon: 'bx bx-message-alt-dots', route: '/feedback' }
   ];
 
   orders = [

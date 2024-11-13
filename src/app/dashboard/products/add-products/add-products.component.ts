@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-add-products',
@@ -9,6 +9,13 @@ export class AddProductsComponent {
   product = {
     name: '',
     category: 'chuột',
+    color:'',
+    Connectivity :'',
+    Dimensions :'',
+    Material :'',
+    EyeReading :'',
+    Button :'',
+    SS :'',
     quantity: null,
     dpi: null,
     connection: '',
@@ -17,7 +24,14 @@ export class AddProductsComponent {
     buttonCount: null,
     batteryCapacity: '',
     led: 'Có',
-    switchType: '',
+    Layout: '',
+    Case: '',
+    Switch :'',
+    SwitchLife :'',
+    KeycapMaterial :'',
+    SwitchMaterial:'',
+    Stabilizes :'',
+    PCB:'',
     description: ''
 };
 
@@ -42,4 +56,11 @@ cancelAddProduct() {
         window.location.href = 'products'; 
     }
 }
+@Input() showModal: boolean = false; // Điều khiển modal có hiển thị không
+  @Output() close = new EventEmitter<void>(); // Sự kiện đóng modal
+
+  // Phương thức đóng modal
+  closeModal() {
+    this.close.emit(); // Phát sự kiện để đóng modal từ bên ngoài
+  }
 }

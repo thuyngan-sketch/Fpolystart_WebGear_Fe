@@ -3,30 +3,36 @@
         <h1>Home</h1>
         <ul class="breadcrumb">
             <li>
-                <a href="#">Home</a>
+                <a>Home</a>
             </li>
             <li><i class='bx bx-chevron-right' style="box-shadow: 0 0 5px wheat;"></i></li>
             <li>
-                <a class="active" href="#">Dashboard</a>
+                <a class="active">Dashboard</a>
             </li>
         </ul>
     </div>
-    <a href="#" class="btn-download">
+    <a  class="btn-download">
         <i class='bx bxs-cloud-download'></i>
         <span class="text">Download PDF</span>
     </a>
 </div>
 <div>
     <ul class="box-info">
-        <li *ngFor="let item of boxInfo">
+      <li *ngFor="let item of boxInfo">
+        <a [routerLink]="item.route" class="box-link">
+          <div class="bx">
             <i [class]="item.icon"></i>
-            <span class="text">
-                <h3>{{ item.title }}</h3>
-                <p>{{ item.value }}</p>
-            </span>
-        </li>
+          </div>
+          <div class="text">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.value }}</p>
+          </div>
+        </a>
+      </li>
     </ul>
-</div>
+  </div>
+  
+  
 <div class="carte">
     <h2 style="color: #0A99F8;">Đơn hàng cần xác nhận</h2>
     <div id="order-list">

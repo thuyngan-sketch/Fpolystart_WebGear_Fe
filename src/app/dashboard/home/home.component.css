@@ -56,27 +56,33 @@ body {
     background: #FFF2C6; /* --light-yellow */
 }
 
+/* Cấu trúc Grid cho các box */
 .box-info {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Tự động điều chỉnh số lượng cột */
+    gap: 20px; /* Khoảng cách giữa các box */
     padding: 20px;
     margin-top: 20px;
 }
 
+/* Định kiểu cho từng item trong danh sách */
 .box-info li {
-    border-radius: 15px;
+    border-radius: 15px; /* Bo góc cho box */
     padding: 20px;
     display: flex;
-    align-items: center;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
+    align-items: center; /* Căn giữa theo chiều dọc */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ cho box */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Hiệu ứng khi hover */
+    background-color: #fff; /* Màu nền trắng */
 }
 
+/* Hiệu ứng hover */
 .box-info li:hover {
-    transform: translateY(-3px);
+    transform: translateY(-3px); /* Dịch chuyển box lên khi hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Tăng cường đổ bóng khi hover */
 }
 
+/* Biểu tượng (icon) */
 .box-info li .bx {
     width: 60px;
     height: 60px;
@@ -85,41 +91,61 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 20px; /* Khoảng cách giữa icon và text */
 }
 
+/* Màu sắc cho từng item */
 .box-info li:nth-child(1) .bx {
-    background: #CFE8FF; /* --light-blue */
-    color: #0A99F8; /* --blue */
+    background: #CFE8FF; /* Màu nền sáng xanh */
+    color: #0A99F8; /* Màu biểu tượng xanh dương */
 }
 
 .box-info li:nth-child(2) .bx {
-    background: #FFCE26; /* --light-yellow */
-    color: #FFCE26; /* --yellow */
+    background: #FFCE26; /* Màu nền vàng sáng */
+    color: #FFCE26; /* Màu biểu tượng vàng */
 }
 
 .box-info li:nth-child(3) .bx {
-    background: #FFE0D3; /* --light-orange */
-    color: #FD7238; /* --orange */
+    background: #FFE0D3; /* Màu nền cam nhạt */
+    color: #FD7238; /* Màu biểu tượng cam */
 }
 
 .box-info li:nth-child(4) .bx {
-    background: #24B872; /* --light-green */
-    color: #24B872; /* --green */
+    background: #24B872; /* Màu nền xanh lá cây sáng */
+    color: #24B872; /* Màu biểu tượng xanh lá cây */
+}
+
+/* Định kiểu cho phần văn bản bên trong box */
+.box-info li .text {
+    display: flex;
+    flex-direction: column; /* Đảm bảo văn bản được xếp theo chiều dọc */
 }
 
 .box-info li .text h3 {
-    color: #0A99F8; /* --blue */
+    color: #0A99F8; /* Màu tiêu đề */
     font-size: 24px;
-    font-weight: 600;
+    font-weight: 600; /* Đậm */
     margin: 0;
-    padding-left: 20px;
 }
 
 .box-info li .text p {
-    color: #0A99F8; /* --blue */
+    color: #0A99F8; /* Màu văn bản (giá trị) */
     margin: 0;
-    padding-left: 20px;
 }
+
+/* Loại bỏ gạch chân cho các liên kết */
+.box-info a {
+    text-decoration: none; /* Xóa gạch chân */
+    display: flex; /* Đảm bảo cả icon và text nằm ngang */
+    align-items: center; /* Căn giữa icon và text theo chiều dọc */
+}
+
+/* Thêm hiệu ứng hover cho link */
+.box-info a:hover {
+    color: inherit; /* Giữ nguyên màu sắc khi hover */
+    text-decoration: none; /* Đảm bảo không có gạch chân khi hover */
+}
+
 
 .container {
     max-width: 1360px;

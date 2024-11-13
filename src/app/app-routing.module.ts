@@ -22,16 +22,17 @@ import { EditUsersComponent } from './dashboard/users/edit-users/edit-users.comp
 import { AddVouchersComponent } from './dashboard/vouchers/add-vouchers/add-vouchers.component';
 import { EditVouchersComponent } from './dashboard/vouchers/edit-vouchers/edit-vouchers.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent }, // Added Login route
+  { path: 'login', component: LoginComponent }, 
   { path: 'register', component: RegisterComponent },
   { path: 'email', component: EmailComponent },
   { path: 'verify-email', component: VerifyEmailComponent },
   { path: 'change-password', component: ChangePasswordComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' }, // Redirect to login
+  { path: '', redirectTo: '/login', pathMatch: 'full' }, 
   { path: 'home', component: HomeComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'orders', component: OrdersComponent },
@@ -48,6 +49,7 @@ const routes: Routes = [
   { path: 'feedback', component: FeedbackComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'test', component: TestComponent }
 ];
 
 @NgModule({
