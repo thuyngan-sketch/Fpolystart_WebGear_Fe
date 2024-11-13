@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-edit-product',
@@ -33,22 +33,22 @@ previewImage(event: any) {
 
 saveProduct() {
     alert('Sản phẩm đã được cập nhật!');
-    // Logic để lưu sản phẩm
+ 
 }
 
 cancelEditProduct() {
     const confirmation = confirm("Bạn có chắc chắn muốn hủy chỉnh sửa sản phẩm không?");
     if (confirmation) {
-        // Logic để điều hướng về trang quản lý sản phẩm
+
         window.location.href = 'products'; 
     }
 }
 
 loadProductData() {
     const productId = this.getProductId(); 
-    const product = this.getProductById(productId); // Giả sử bạn có hàm này để lấy thông tin sản phẩm
+    const product = this.getProductById(productId);
 
-    this.product = product; // Gán dữ liệu sản phẩm vào biến product
+    this.product = product; 
     const image = document.getElementById('productImage') as HTMLImageElement;
     const defaultIcon = document.getElementById('defaultIcon') as HTMLElement;
 
@@ -60,12 +60,12 @@ loadProductData() {
 }
 
 getProductId() {
-    // Logic để lấy ID sản phẩm từ URL hoặc từ nơi khác
-    return 0; // Ví dụ, trả về ID sản phẩm đầu tiên
+
+    return 0;
 }
 
 getProductById(productId: number) {
-    // Logic để lấy thông tin sản phẩm từ danh sách sản phẩm
+
     return {
         name: 'Chuột Gaming',
         category: 'chuột',
@@ -79,11 +79,17 @@ getProductById(productId: number) {
         led: 'Có',
         switchType: 'Mechanical',
         description: 'Mô tả sản phẩm',
-        image: '' // Đường dẫn đến ảnh sản phẩm
+        image: ''
     };
 }
 
 ngOnInit() {
     this.loadProductData();
 }
+@Input() showModal: boolean = false;
+  @Output() close = new EventEmitter<void>(); 
+
+  closeModal() {
+    this.close.emit(); 
+  }
 }

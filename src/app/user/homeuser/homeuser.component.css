@@ -1,120 +1,261 @@
 .product-carousel {
     display: flex;
-    align-items: center;
+    overflow: hidden; /* Ẩn các sản phẩm ngoài vùng hiển thị */
     position: relative;
-    overflow: hidden;
-    width: 100%;
-}
-
-.product-list {
-    display: flex;
+    width: 1200px; /* Đảm bảo chiều rộng của carousel là đủ cho 4 sản phẩm, mỗi sản phẩm 300px + khoảng cách 15px */
+    margin: 0 auto; /* Căn giữa carousel */
+    margin-top: 50px;
+  }
+  
+  .product-list {
     list-style: none;
-    padding: 0;
-    margin: 0;
+    display: flex;
+    transition: transform 0.5s ease; /* Hiệu ứng trượt mượt mà */
+  }
+  
+  .product-item {
+    margin-right: 15px; /* Khoảng cách giữa các sản phẩm */
+    position: relative;
+    width: 300px; /* Kích thước mỗi sản phẩm */
+    box-sizing: border-box;
+  }
+  
+  .product-card {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
     transition: transform 0.3s ease;
-}
-
-.product-item {
-    flex: 0 0 auto;
-    width: 312px;
-    margin-right: 20px;
-}
-
-.carousel-btn {
-    background: transparent;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px); /* Tạo hiệu ứng nâng cao khi hover */
+  }
+  
+  .prev-btn,
+  .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 2rem;
+    padding: 0.5rem;
     border: none;
     cursor: pointer;
     z-index: 1;
-    font-size: 24px;
-    color: #007bff;
-}
-
-.left {
+    border-radius: 50%; /* Đảm bảo nút tròn */
+  }
+  
+  .prev-btn {
+    left: -30px;
+  }
+  
+  .next-btn {
+    right: -30px;
+  }
+  
+  .icon-container {
     position: absolute;
-    left: 10px;
-}
-
-.right {
-    position: absolute;
+    bottom: 5px;
     right: 10px;
-}
-
-.product-card {
-    position: relative;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: box-shadow 0.3s ease;
-}
-
-.product-card:hover {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.card-banner {
-    position: relative;
-}
-
-.icon-container {
-    position: absolute;
-    top: 20%;
-    left: 10%;
-    display: flex;
-    flex-direction: column;
     opacity: 0;
     transition: opacity 0.3s ease;
-}
-
-.product-card:hover .icon-container {
-    opacity: 1;
-}
-
-.card-action-btn {
-    background: #fff;
-    border: 2px solid #000;
-    border-radius: 50%;
+  }
+  
+  .product-card:hover .icon-container {
+    opacity: 1; /* Hiện biểu tượng khi hover */
+  }
+  
+  .card-action-btn {
+    background: transparent;
+    border: none;
     cursor: pointer;
-    margin: 5px 0;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-.card-action-tooltip {
+  }
+  
+  .card-action-tooltip {
     display: none;
     position: absolute;
-    left: 50px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #000;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 4px;
-    white-space: nowrap;
-    z-index: 1;
-}
-
-.card-action-btn:hover + .card-action-tooltip {
+    background: #333;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 100%;
+    z-index: 10;
+  }
+  
+  .icon-container button:hover + .card-action-tooltip {
     display: block;
+  }
+  
+  /* Container chứa ảnh và vệt sáng */
+  .image-container {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    width: 300px;  /* Đặt chiều rộng của ảnh nếu cần */
+    height: 350px; /* Đặt chiều cao của ảnh nếu cần */
+    border-radius: 10px; /* Thêm border-radius nếu muốn làm tròn góc ảnh */
+  }
+  
+  /* Hình ảnh */
+  .image-contain {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Đảm bảo ảnh không bị méo khi thay đổi kích thước */
+    transition: transform 0.4s ease-in-out; /* Hiệu ứng phóng to ảnh mượt mà khi hover */
+  }
+  
+  /* Tạo vệt sáng */
+  .image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; /* Vệt sáng bắt đầu ngoài bên trái ảnh */
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.6); /* Vệt sáng có màu sáng, bạn có thể điều chỉnh độ sáng */
+    transform: skewX(-30deg); /* Tạo góc nghiêng cho vệt sáng */
+    opacity: 0;
+    transition: left 1s ease-out, opacity 0.4s ease-out; /* Di chuyển vệt sáng và thay đổi độ mờ */
+  }
+  
+  /* Khi hover vào container, vệt sáng sẽ di chuyển qua ảnh */
+  .image-container:hover::before {
+    left: 100%; /* Vệt sáng sẽ di chuyển từ trái qua phải */
+    opacity: 1; /* Vệt sáng sẽ sáng lên khi hover */
+  }
+  
+  /* Phóng to hình ảnh khi hover */
+  .image-container:hover .image-contain {
+    transform: scale(1.1); /* Phóng to ảnh một chút */
+  }
+  
+  /* Thêm chiều cao cho carousel */
+.col-md-9 {
+    height: 600px; /* Bạn có thể thay đổi giá trị này tùy vào yêu cầu */
 }
 
-.card-content {
-    padding: 15px;
+/* Tạo khoảng cách giữa các hình ảnh trong .col-md-3 */
+.col-md-3 img {
+    margin-bottom: 5px; /* Khoảng cách giữa các hình ảnh */
 }
 
-.card-cat {
+/* Tạo khoảng cách giữa các hình ảnh trong card section */
+.card-header {
+    margin-bottom: 5px; /* Thêm khoảng cách giữa các card images */
+}
+
+ /* Container cho search */
+.search-container {
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+  }
+  
+  /* Căn chỉnh các cột */
+  .search-container .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* Text phần giới thiệu */
+  .search-container p {
+    margin: 5px 0;
+    color: #555;
     font-size: 14px;
-    color: #666;
+    line-height: 1.5;
+  }
+  
+  /* Thanh tìm kiếm */
+  .search-bar {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    outline: none;
+  }
+  
+  .search-bar:focus {
+    border-color: #41c067;
+    
+  }
+  
+  /* Chiều rộng của thanh tìm kiếm */
+  .search-container .col-md-7 {
+    padding-left: 0;
+    max-width: 500px; /* Điều chỉnh độ dài */
+    margin-right: 15px;
+  }
+  
+  /* Tăng khoảng cách giữa các cột */
+  .search-container .col-md-5 {
+    margin-left: 350px;
+  }
+  
+  /* Định dạng cho mobile */
+  @media (max-width: 768px) {
+    .search-container .row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .search-container .col-md-5,
+    .search-container .col-md-7 {
+      width: 100%;
+    }
+  
+    .search-bar {
+      width: 100%;
+    }
+  }
+  .contact-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+  .contact-info i {
+    margin-right: 10px; /* Khoảng cách giữa icon và text */
+    font-size: 20px; /* Kích thước icon */
 }
 
-.card-title {
-    margin: 10px 0;
+.contact-info p {
+    margin: 0; /* Loại bỏ margin mặc định của p */
 }
 
-.card-price {
-    font-weight: bold;
-    font-size: 18px;
+.footer-menu a {
+    text-decoration: none; /* Bỏ gạch chân */
+    color: inherit; /* Đảm bảo màu chữ giữ nguyên */
 }
+
+/* Tùy chọn thêm: thay đổi màu khi hover */
+.footer-menu a:hover {
+    color: #007bff; /* Màu khi hover */
+}
+
+.icon_footer {
+    display: flex;
+    gap: 20px; /* Khoảng cách giữa các icon */
+  }
+  
+  .icon_footer i {
+    font-size: 40px; /* Kích thước của icon */
+    padding: 10px; /* Khoảng cách giữa icon và border */
+    border: 2px solid transparent; /* Đặt border mặc định là transparent */
+    border-radius: 50%; /* Bo góc để các icon thành hình tròn */
+    transition: all 0.3s ease; /* Thêm hiệu ứng mượt mà cho tất cả các thay đổi */
+  }
+  
+  /* Khi hover vào icon, thay đổi màu border */
+  .icon_footer i:hover {
+    border-color: #007bff; /* Thay đổi màu border khi hover (màu xanh dương) */
+    color: #007bff; /* Thay đổi màu icon khi hover (tùy chọn) */
+  }
+  

@@ -29,7 +29,7 @@ import { AddVouchersComponent } from './dashboard/vouchers/add-vouchers/add-vouc
 import { EditVouchersComponent } from './dashboard/vouchers/edit-vouchers/edit-vouchers.component';
 import { HomeuserComponent } from './user/homeuser/homeuser.component';
 import { TestComponent } from './test/test.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -58,16 +58,17 @@ import { TestComponent } from './test/test.component';
     AddVouchersComponent,
     EditVouchersComponent,
     HomeuserComponent,
-    TestComponent,
-
+    TestComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [DashboardComponent]
 })
 export class AppModule { }

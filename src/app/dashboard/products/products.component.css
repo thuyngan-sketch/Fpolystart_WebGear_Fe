@@ -1,26 +1,4 @@
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #eee;
-    margin: 0;
-    padding: 20px;
-    color: #342E37; /* --dark */
-}
-
-.head-title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    background: #eee; /* --light */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.head-title h1 {
-    font-size: 32px;
-    font-weight: 600;
-    margin: 0;
-    color: #0A99F8; /* --blue */
-}
+/*
 
 .breadcrumb {
     display: flex;
@@ -31,44 +9,19 @@ body {
 
 .breadcrumb li {
     margin: 0 10px;
-    color: #342E37; /* --dark */
+    color: #342E37; 
 }
 
 .breadcrumb li a {
     text-decoration: none;
-    color: #AAAAAA; /* --dark-grey */
+    color: #AAAAAA; 
 }
 
 .breadcrumb li a.active {
-    color: #0A99F8; /* --blue */
+    color: #0A99F8; 
 }
 
-.carte {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
 
-.btn-add {
-    display: block;
-    width: 200px;
-    margin: 0 auto 20px;
-    padding: 10px;
-    background-color: #3C91E6; /* --blue */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-}
-
-.btn-add:hover {
-    background-color: #2a70b0; /* Màu khi hover */
-}
 
 table {
     width: 100%;
@@ -79,16 +32,16 @@ table {
 th, td {
     padding: 15px;
     text-align: left;
-    border: 1px solid #eee; /* --grey */
+    border: 1px solid #eee;
 }
 
 th {
-    background-color: #CFE8FF; /* --light-blue */
-    color: #342E37; /* --dark */
+    background-color: #CFE8FF; 
+    color: #342E37;
 }
 
 tr:hover {
-    background-color: #FFE0D3; /* --light-orange */
+    background-color: #FFE0D3;
 }
 
 .action-icons {
@@ -102,7 +55,7 @@ tr:hover {
 }
 
 .action-icons i:hover {
-    color: #0A99F8; /* --blue */
+    color: #0A99F8;
 }
 
 .toggle {
@@ -137,9 +90,148 @@ tr:hover {
 }
 
 input:checked + .toggle-label {
-    background-color: #3C91E6; /* --blue */
+    background-color: #3C91E6;
 }
 
 input:checked + .toggle-label::after {
     transform: translateX(20px);
 }
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+   */
+   /* Định dạng bảng */
+   body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #eee;
+    margin: 0;
+    padding: 20px;
+    color: #342E37; 
+}
+.carte {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-add {
+    display: block;
+    width: 200px;
+    margin: 0 auto 20px;
+    padding: 10px;
+    background-color: #3C91E6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn-add:hover {
+    background-color: #2a70b0;
+}
+.head-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background: #eee; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.head-title h1 {
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0;
+    color: #0A99F8; 
+}
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-table th,
+.product-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.product-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #333;
+}
+
+.product-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.product-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Thêm các border cho các cột */
+.product-table td {
+    border-right: 1px solid #ddd;
+}
+
+.product-table td:last-child,
+.product-table th:last-child {
+    border-right: none;
+}
+
+/* Tạo khoảng cách giữa các bảng */
+h2 {
+    margin-top: 40px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Điều chỉnh font và kích thước chữ trong bảng */
+.product-table th,
+.product-table td {
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+/* Cải thiện các thanh tiêu đề của bảng */
+.product-table th {
+    background-color: #88b2df;
+    color: #fff;
+}
+
+/* Cải thiện chiều rộng của cột */
+.product-table td {
+    width: 10%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }

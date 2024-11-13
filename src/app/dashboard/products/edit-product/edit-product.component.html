@@ -1,13 +1,7 @@
-<div class="head-title">
-    <div class="left">
-        <h1>Products</h1>
-        <ul class="breadcrumb">
-            <li><a href="#">Products</a></li>
-            <li><i class='bx bx-chevron-right'></i></li>
-            <li><a class="active" href="#">Sửa thông tin sản phẩm</a></li>
-        </ul>
-    </div>
-</div>
+<div *ngIf="showModal" class="modal-overlay">
+    <div class="modal-content">
+        <button class="close-btn" (click)="closeModal()">×</button>
+    
 <div class="carte">
     <h1>Thông Tin Sản Phẩm</h1>
     <div class="image-upload">
@@ -90,4 +84,6 @@
             <i class='bx bxs-x-circle'></i> Hủy
         </button>
     </div>
+</div>
+</div>
 </div>
