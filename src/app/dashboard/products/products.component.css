@@ -116,14 +116,16 @@ button {
     margin: 0;
     padding: 20px;
     color: #342E37; 
+    margin-bottom: 5px;
 }
 .carte {
-    max-width: 1200px;
-    margin: auto;
+    max-width: 98%;
     padding: 20px;
     background: white;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left: 10px;
+    padding-bottom: 5px;
 }
 
 .btn-add {
