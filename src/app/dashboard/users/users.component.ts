@@ -26,4 +26,11 @@ export class UsersComponent implements OnInit {
     // Logic để chỉnh sửa người dùng
     window.location.href ='edit-users/:id';
   }
+  showModalAdd: boolean = false;
+  openModalAdd() {
+    this.showModalAdd = true;
+  }
+  closeModalAdd() {
+    this.showModalAdd = false;
+  }
 }

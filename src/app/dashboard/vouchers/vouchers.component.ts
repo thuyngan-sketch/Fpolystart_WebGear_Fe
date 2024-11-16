@@ -30,4 +30,12 @@ deleteDiscount(code: string) {
         this.discounts = this.discounts.filter(discount => discount.code !== code);
     }
 }
+
+showModalAdd: boolean = false;
+openModalAdd() {
+  this.showModalAdd = true;
+}
+closeModalAdd() {
+  this.showModalAdd = false;
+}
 }

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
@@ -30,6 +30,7 @@ import { EditVouchersComponent } from './dashboard/vouchers/edit-vouchers/edit-v
 import { HomeuserComponent } from './user/homeuser/homeuser.component';
 import { TestComponent } from './test/test.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DetailProductComponent } from './dashboard/products/detail-product/detail-product.component';
 
 
 @NgModule({
@@ -58,13 +59,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AddVouchersComponent,
     EditVouchersComponent,
     HomeuserComponent,
-    TestComponent
+    TestComponent,
+    DetailProductComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     
   ],

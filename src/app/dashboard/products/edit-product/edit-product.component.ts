@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-
 @Component({
   selector: 'app-edit-product',
   templateUrl: './edit-product.component.html',
@@ -7,20 +6,18 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class EditProductComponent {
   product = {
-    name: '',
+    productName: '',
+    price:'',
+    view:'',
+    quantity:'',
+    weight:'',
+    size:'',
+    led:'Có',
+    batteryCapacity:'',
     category: 'chuột',
-    quantity: null as number | null,
-    dpi: null as number | null,
-    connection: '',
-    material: '',
-    frequency: null as number | null,
-    buttonCount: null as number | null,
-    batteryCapacity: '',
-    led: 'Có',
-    switchType: '',
     description: '',
-    image: ''
-};
+    image: ''  
+  };
 
 previewImage(event: any) {
     const image = document.getElementById('productImage') as HTMLImageElement;
@@ -47,8 +44,7 @@ cancelEditProduct() {
 loadProductData() {
     const productId = this.getProductId(); 
     const product = this.getProductById(productId);
-
-    this.product = product; 
+ 
     const image = document.getElementById('productImage') as HTMLImageElement;
     const defaultIcon = document.getElementById('defaultIcon') as HTMLElement;
 
@@ -92,4 +88,12 @@ ngOnInit() {
   closeModal() {
     this.close.emit(); 
   }
+
+  
+  onOverlayClick(event: MouseEvent) {
+    if ((event.target as HTMLElement).classList.contains('modal-overlay')) {
+      this.closeModal(); // Đóng modal khi click vào overlay
+    }
+  }
+  
 }

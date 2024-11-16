@@ -2,15 +2,17 @@
     <div class="left">
         <h1>Users</h1>
         <ul class="breadcrumb">
-            <li><a href="#">Users</a></li>
+            <li><a >Users</a></li>
             <li><i class='bx bx-chevron-right'></i></li>
-            <li><a class="active" href="#">Quản Lý Người Dùng</a></li>
+            <li><a class="active" >Quản Lý Người Dùng</a></li>
         </ul>
     </div>
 </div>
 <br>
 <div class="carte">
-    <button class="btn-add" (click)="addUser()">Thêm Người Dùng Mới +</button>
+    <button class="btn-add" (click)="openModalAdd()">Thêm Sản Phẩm Mới +</button>
+
+    <app-add-users [showModal]="showModalAdd" (close)="closeModalAdd()"></app-add-users> 
 
     <table>
         <thead>
