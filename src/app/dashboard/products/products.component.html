@@ -1,4 +1,4 @@
-<!-- <div class="head-title">
+ <div class="head-title">
     <div class="left">
         <h1>Products</h1>
         <ul class="breadcrumb">
@@ -10,130 +10,44 @@
 </div>
 <br>
 <div class="carte">
-    <button class="btn-add" (click)="openModal()">Thêm Sản Phẩm Mới +</button>
+    <button class="btn-add" (click)="openModalAdd()">Thêm Sản Phẩm Mới +</button>
 
-    <app-add-products [showModal]="showModal" (close)="closeModal()"></app-add-products>
-    <table>
-        <thead>
-            <tr>
-                <th>Ảnh</th>
-                <th>Tên Sản Phẩm</th>
-                <th>Loại Sản Phẩm</th>
-                <th>Giá Gốc</th>
-                <th>Giảm Giá</th>
-                <th>Thao Tác</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let product of products; let i = index">
-                <td><img [src]="product.image" alt="{{ product.name }}" style="width: 50px;"></td>
-                <td>{{ product.name }}</td>
-                <td>{{ product.type }}</td>
-                <td>{{ product.originalPrice | currency:'VND' }}</td>
-                <td>{{ product.discount }}%</td>
-                <td class="action-icons">
-                    <i class='bx bx-show' (click)="showProduct(product)"></i>
-                    <i class='bx bx-edit' (click)="editProduct(product.id)"></i>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-<br> -->
-<!-- Hiển thị danh sách chuột -->
-<!-- Hiển thị danh sách bàn phím -->
-<div class="head-title">
-    <div class="left">
-        <h1>Products</h1>
-        <ul class="breadcrumb">
-            <li><a>Products</a></li>
-            <li><i class='bx bx-chevron-right'></i></li>
-            <li><a class="active">Quản Lý Sản Phẩm</a></li>
-        </ul>
+    <app-add-products [showModal]="showModalAdd" (close)="closeModalAdd()"></app-add-products> 
+    <div *ngIf="products.length > 0; else loading" class="product-table-wrapper">
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th>ProductId</th>
+                    <th>Image</th>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Sale</th>
+                    <th>Description</th>
+                    <th>Thao Tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products">
+                    <td>{{ product.productID }}</td>
+                    <td><img [src]="product.avatarProduct" alt="{{ product.productName }}" class="product-image" /></td>
+                    <td>{{ product.productName }}</td>
+                    <td>{{ product.price | currency }}</td>
+                    <td>{{ product.quantity }}</td>
+                    <td>%</td>
+                    <td>{{ product.description }}</td>
+                    <td class="action-icons">
+                        <i class='bx bx-show' (click)="viewProductDetail(product.productID)"></i> 
+                        <i class='bx bx-edit' (click)="openModalEdit()"></i>
+                        <app-edit-product [showModal]="showModalEdit" (close)="closeModalEdit()"></app-edit-product> 
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-</div>
-<br>
-<div class="carte">
-    <button class="btn-add" (click)="openModal()">Thêm Sản Phẩm Mới +</button>
+    <ng-template #loading>
+        <p>Loading products...</p>
+    </ng-template>
+</div> 
 
-    <app-add-products [showModal]="showModal" (close)="closeModal()"></app-add-products>
-<div *ngIf="products.Keyboards.length > 0">
-    <h2>Bàn phím</h2>
-    <table class="product-table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Mã sản phẩm</th>
-                <th>Màu sắc</th>
-                <th>Layout</th>
-                <th>Vỏ</th>
-                <th>Switch</th>
-                <th>Tuổi thọ Switch</th>
-                <th>LED</th>
-                <th>Chất liệu keycap</th>
-                <th>Chất liệu switch</th>
-                <th>Thao Tác</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let keyboard of products.Keyboards">
-                <td>{{ keyboard.keyboardDetailID }}</td>
-                <td>{{ keyboard.productID }}</td>
-                <td>{{ keyboard.color }}</td>
-                <td>{{ keyboard.layout }}</td>
-                <td>{{ keyboard.case }}</td>
-                <td>{{ keyboard.switch }}</td>
-                <td>{{ keyboard.switchLife }}</td>
-                <td>{{ keyboard.led }}</td>
-                <td>{{ keyboard.keycapMaterial }}</td>
-                <td>{{ keyboard.switchMaterial }}</td>
-                <td class="action-icons">
-                    <i class='bx bx-show' (click)="showProduct(products)"></i>
-                    <i class='bx bx-edit' (click)="editProduct(products.id)"></i>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
 
-<div *ngIf="products.Mice.length > 0">
-    <h2>Chuột</h2>
-    <table class="product-table">
-        <thead>
-            <tr>
-                <th>ID chuột</th>
-                <th>Mã sản phẩm</th>
-                <th>Màu sắc</th>
-                <th>DPI</th>
-                <th>Kết nối</th>
-                <th>Kích thước</th>
-                <th>Chất liệu</th>
-                <th>Tốc độ quét mắt</th>
-                <th>Số nút</th>
-                <th>LED</th>
-                <th>Phần mềm hỗ trợ</th>
-                <th>Thao Tác</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let mouse of products.Mice">
-                <td>{{ mouse.mouseDetailID }}</td>
-                <td>{{ mouse.productID }}</td>
-                <td>{{ mouse.color }}</td>
-                <td>{{ mouse.dpi }}</td>
-                <td>{{ mouse.connectivity }}</td>
-                <td>{{ mouse.dimensions }}</td>
-                <td>{{ mouse.material }}</td>
-                <td>{{ mouse.eyeReading }}</td>
-                <td>{{ mouse.button }}</td>
-                <td>{{ mouse.led }}</td>
-                <td>{{ mouse.ss }}</td>
-                <td class="action-icons">
-                    <i class='bx bx-show' (click)="showProduct(products)"></i>
-                    <i class='bx bx-edit' (click)="editProduct(products.id)"></i>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-</div>

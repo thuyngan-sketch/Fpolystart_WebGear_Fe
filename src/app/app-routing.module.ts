@@ -23,6 +23,7 @@ import { AddVouchersComponent } from './dashboard/vouchers/add-vouchers/add-vouc
 import { EditVouchersComponent } from './dashboard/vouchers/edit-vouchers/edit-vouchers.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TestComponent } from './test/test.component';
+import { DetailProductComponent } from './dashboard/products/detail-product/detail-product.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent }, 
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'orders', component: OrdersComponent },
   { path: 'users', component: UsersComponent },
   { path: 'app-add-products', component: AddProductsComponent },
+  { path: 'product/:id', component: DetailProductComponent },
   { path: 'edit-product/:id', component: EditProductComponent },
   { path: 'app-users', component: UsersComponent },
   { path: 'app-add-users', component: AddUsersComponent },

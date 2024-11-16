@@ -11,7 +11,9 @@
             </li>
         </ul>
     </div>
-    <button class="btn btn-success btn-add" routerLink="/app-add-vouchers">Thêm Mã Giảm Giá + </button>
+    <button class="btn-add" (click)="openModalAdd()">Thêm Mã Giảm Giá +</button>
+
+    <app-add-vouchers [showModal]="showModalAdd" (close)="closeModalAdd()"></app-add-vouchers> 
 </div>
 <div class="table-container">
     <table class="table table-striped">

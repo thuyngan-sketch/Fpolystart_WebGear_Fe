@@ -1,0 +1,27 @@
+
+    <div *ngIf="product" class="product-detail-container">
+      <h2>Chi tiết sản phẩm</h2>
+
+      <div class="product-detail">
+        <!-- Cột trái: ảnh sản phẩm -->
+        <div class="product-image">
+          <img [src]="product.avatarProduct" alt="Product Image" />
+        </div>
+
+        <!-- Cột phải: thông tin sản phẩm -->
+        <div class="product-info">
+          <div>
+            <strong>Tên sản phẩm:</strong> {{ product.productName }}
+          </div>
+          <div>
+            <strong>Giá:</strong> {{ product.price | currency }}
+          </div>
+          <div>
+            <strong>Số lượng:</strong> {{ product.quantity }}
+          </div>
+          <div>
+            <strong>Mô tả:</strong> {{ product.description }}
+          </div>
+        </div>
+      </div>
+    </div>
