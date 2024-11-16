@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
+import { OrderService } from 'src/app/service/order.service';
 
 @Component({
   selector: 'app-orders',
@@ -6,18 +7,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit {
-  searchTerm: string = '';
-  orders: any[] = [
-    { id: '001', customerName: 'Nguyễn Văn A', product: 'Chuột Gaming', status: 'Đã Giao', orderDate: new Date('2024-09-01') },
-    { id: '002', customerName: 'Trần Thị B', product: 'Bàn Phím Cơ', status: 'Đang Xử Lý', orderDate: new Date('2024-09-02') },
-    // Thêm các đơn hàng khác nếu cần
-  ];
-  filteredOrders: any[] = [];
+  searchTerm: string = ''; // Biến để nhập từ khóa tìm kiếm
+  orders: any[] = []; // Danh sách đơn hàng từ API
+  filteredOrders: any[] = []; // Danh sách đã lọc dựa trên tìm kiếm
+
+  constructor(private orderService: OrderService) {} // Inject OrderService
 
   ngOnInit() {
-    this.filteredOrders = this.orders; // Khởi tạo danh sách đơn hàng
+    this.fetchOrders(); // Lấy dữ liệu từ API khi component khởi tạo
   }
 
+  // Hàm gọi API lấy danh sách đơn hàng
+  fetchOrders() {
+    this.orderService.getAllOrder().subscribe(
+      (data) => {
+        this.orders = data; // Gán dữ liệu vào danh sách đơn hàng
+        this.filteredOrders = this.orders; // Sao chép để hiển thị danh sách ban đầu
+      },
+      (error) => {
+        console.error('Lỗi khi lấy đơn hàng:', error); // Xử lý lỗi (nếu có)
+      }
+    );
+  }
+
+  // Hàm tìm kiếm đơn hàng
   filterOrders() {
     const term = this.searchTerm.toLowerCase();
     this.filteredOrders = this.orders.filter(order => 
@@ -27,13 +40,43 @@ export class OrdersComponent implements OnInit {
     );
   }
 
+  // Hàm xem chi tiết đơn hàng
   viewOrder(orderId: string) {
-    // Logic để xem chi tiết đơn hàng
     console.log('Xem đơn hàng:', orderId);
+    // Bạn có thể điều hướng đến trang chi tiết nếu cần
+    // this.router.navigate(['/orders', orderId]);
   }
 
+  // Hàm chỉnh sửa đơn hàng
   editOrder(orderId: string) {
-    // Logic để chỉnh sửa đơn hàng
     console.log('Chỉnh sửa đơn hàng:', orderId);
+    // Điều hướng đến trang chỉnh sửa nếu cần
+    // this.router.navigate(['/orders/edit', orderId]);
+  }
+
+
+  getStatusLabel(status: number): string {
+    switch (status) {
+      case 1:
+        return 'Chờ xử lý'
+      case 2:
+        return 'Xác nhận'
+      case 3:
+        return 'Đang xử lý'
+      case 4: 
+        return 'Đang giao cho đơn vị vận chuyển'
+      case 5: 
+        return 'Đang giao'
+      case 6: 
+        return 'Đã giao'
+      case 7: 
+        return 'Đơn bị huỷ'
+      case 8: 
+        return 'Đơn Hoàn'
+      case 9: 
+        return 'Đã hoàn tiền'
+      default:
+        return 'Không xác định'
+    }
   }
 }
