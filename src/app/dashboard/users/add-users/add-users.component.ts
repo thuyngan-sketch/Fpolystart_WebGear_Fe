@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-add-users',
@@ -40,4 +40,15 @@ export class AddUsersComponent {
       window.location.href = '/app-users'; 
     }
   }
+  
+  @Input() showModal: boolean = false;
+@Output() close = new EventEmitter<void>(); 
+closeModal() {
+  this.close.emit();
+}
+onOverlayClick(event: MouseEvent) {
+  if ((event.target as HTMLElement).classList.contains('modal-overlay')) {
+    this.closeModal(); 
+  }
+}
 }

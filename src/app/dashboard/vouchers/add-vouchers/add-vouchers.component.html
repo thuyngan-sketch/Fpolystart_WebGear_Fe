@@ -1,17 +1,6 @@
-<div class="head-title">
-    <div class="left">
-        <h1>Vouchers</h1>
-        <ul class="breadcrumb">
-            <li>
-                <a routerLink="/vouchers">Vouchers</a>
-            </li>
-            <li><i class='bx bx-chevron-right'></i></li>
-            <li>
-                <a class="active">Thêm Mã Giảm Giá</a>
-            </li>
-        </ul>
-    </div>
-</div>
+<div *ngIf="showModal" class="modal-overlay"(click)="onOverlayClick($event)">
+    <div class="modal-content">
+        <button class="close-btn" (click)="closeModal()">×</button>
 <div class="container">
     <div class="form-container">
         <h2>Thêm Mã Giảm Giá</h2>
@@ -38,4 +27,5 @@
             </div>
         </form>
     </div>
+</div>
 </div>

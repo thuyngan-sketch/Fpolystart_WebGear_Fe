@@ -110,7 +110,7 @@ button {
   }
    */
    /* Định dạng bảng */
-   body {
+   /* body {
     font-family: 'Poppins', sans-serif;
     background-color: #eee;
     margin: 0;
@@ -186,7 +186,7 @@ button {
     background-color: #f1f1f1;
 }
 
-/* Thêm các border cho các cột */
+
 .product-table td {
     border-right: 1px solid #ddd;
 }
@@ -196,27 +196,27 @@ button {
     border-right: none;
 }
 
-/* Tạo khoảng cách giữa các bảng */
+
 h2 {
     margin-top: 40px;
     font-size: 24px;
     color: #333;
 }
 
-/* Điều chỉnh font và kích thước chữ trong bảng */
+
 .product-table th,
 .product-table td {
     font-size: 14px;
     font-family: Arial, sans-serif;
 }
 
-/* Cải thiện các thanh tiêu đề của bảng */
+
 .product-table th {
     background-color: #88b2df;
     color: #fff;
 }
 
-/* Cải thiện chiều rộng của cột */
+
 .product-table td {
     width: 10%;
     text-overflow: ellipsis;
@@ -235,3 +235,143 @@ button {
   button:hover {
     background-color: #0056b3;
   }
+
+
+
+ */
+
+  /* .product-table {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  } */
+  /* Container cho bảng, căn giữa và thêm hiệu ứng */
+  .head-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    color: #0A99F8; /* --blue */
+}
+
+.head-title h1 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-left: 15px;
+}
+.carte {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-add {
+    display: block;
+    width: 200px;
+    margin: 0 auto 20px;
+    padding: 10px;
+    background-color: #3C91E6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn-add:hover {
+    background-color: #2a70b0;
+}
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+}
+
+.breadcrumb li {
+    margin: 0 10px;
+    color: #342E37; /* --dark */
+}
+
+.breadcrumb li a {
+    text-decoration: none;
+    color: #AAAAAA; /* --dark-grey */
+}
+
+.breadcrumb li a.active {
+    color: #0A99F8; /* --blue */
+}
+
+.product-table-wrapper {
+    max-width: 1200px; /* Đặt độ rộng tối đa cho phần tử chứa */
+    margin: auto; /* Căn giữa bảng */
+    padding: 20px; /* Thêm padding cho không gian xung quanh bảng */
+    border-radius: 8px; /* Bo góc cho phần tử chứa */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Thêm bóng cho phần tử chứa */
+    background-color: #f4f4f4; /* Màu nền cho phần tử chứa */
+}
+
+/* Cấu hình bảng */
+.product-table {
+    width: 100%;
+    border-collapse: collapse; /* Hợp nhất các viền bảng */
+    margin: 0 auto; /* Căn giữa bảng trong phần tử chứa */
+}
+
+.product-table th, .product-table td {
+    padding: 10px 10px; /* Thêm khoảng cách cho các ô */
+    text-align: left;
+}
+
+.product-table th {
+    background-color: #82d9ea; /* Màu nền cho các ô tiêu đề */
+    color: #333;
+    font-weight: bold;
+}
+
+.product-table tbody tr:hover {
+    background-color: #f9f9f9; /* Đổi màu khi di chuột vào hàng */
+}
+
+.product-table img.product-image {
+    width: 50px; /* Kích thước ảnh nhỏ */
+    height: 50px;
+    object-fit: cover; /* Giữ tỷ lệ ảnh và không bị biến dạng */
+    border-radius: 5px; /* Bo góc ảnh */
+}
+
+/* Chỉnh các icon thao tác */
+.product-table .action-icons {
+    display: flex; /* Dùng flexbox để căn chỉnh các icon theo chiều ngang */
+    justify-content: space-between; /* Các icon cách đều nhau */
+    align-items: center; /* Canh giữa các icon theo chiều dọc */
+    width: 100%; /* Đảm bảo phần tử cha chiếm toàn bộ chiều rộng */
+    gap: 10px; /* Khoảng cách giữa các icon */
+}
+
+/* Định dạng các icon */
+.product-table .action-icons i {
+    font-size: 18px;
+    color: #007bff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.product-table .action-icons i:hover {
+    color: #0056b3; /* Màu khi hover */
+}
+
+.product-table .action-icons i:active {
+    color: #003f87; /* Màu khi click */
+}
+
+.product-table td {
+    vertical-align: middle; /* Canh dọc các ô, tránh lệch các nội dung */
+}
