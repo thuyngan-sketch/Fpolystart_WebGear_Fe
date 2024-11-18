@@ -31,6 +31,10 @@ import { HomeuserComponent } from './user/homeuser/homeuser.component';
 import { TestComponent } from './test/test.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DetailProductComponent } from './dashboard/products/detail-product/detail-product.component';
+import { CategoryComponent } from './dashboard/category/category.component';
+import { AddCategoryComponent } from './dashboard/category/add-category/add-category.component';
+import { DetailOrdersComponent } from './dashboard/orders/detail-orders/detail-orders.component';
+import { EditOrdersComponent } from './dashboard/orders/edit-orders/edit-orders.component';
 
 
 @NgModule({
@@ -60,7 +64,11 @@ import { DetailProductComponent } from './dashboard/products/detail-product/deta
     EditVouchersComponent,
     HomeuserComponent,
     TestComponent,
-    DetailProductComponent
+    DetailProductComponent,
+    CategoryComponent,
+    AddCategoryComponent,
+    DetailOrdersComponent,
+    EditOrdersComponent
   ],
   imports: [
     BrowserModule,

@@ -7,33 +7,18 @@ import { ProductService } from 'src/app/service/product.service';
   templateUrl: './detail-product.component.html',
   styleUrls: ['./detail-product.component.css']
 })
-export class DetailProductComponent implements OnInit {
-  product: any;  // Biến lưu thông tin sản phẩm
-  productId: number = 0; // ID sản phẩm sẽ được lấy từ URL
+export class DetailProductComponent  {
+  @Input() product: any;  // Thông tin chi tiết sản phẩm
+  @Input() showModal: boolean = false; // Kiểm tra modal có hiển thị không
+  @Output() close = new EventEmitter<void>(); // Đóng modal
 
-  constructor(
-    private productService: ProductService,
-    private route: ActivatedRoute
-  ) {}
-
-  ngOnInit(): void {
-    // Lấy ID sản phẩm từ URL (ví dụ: /product/:id)
-    this.route.paramMap.subscribe((params) => {
-      this.productId = Number(params.get('id')); // Chuyển id thành kiểu số
-      this.loadProductDetail();
-    });
+  closeModal() {
+    this.close.emit();
   }
 
-  // Gọi API để lấy thông tin chi tiết sản phẩm
-  loadProductDetail(): void {
-    this.productService.getProductById(this.productId).subscribe(
-      (data) => {
-        this.product = data; // Lưu dữ liệu sản phẩm vào biến
-      },
-      (error) => {
-        console.error('Có lỗi khi lấy dữ liệu sản phẩm:', error);
-      }
-    );
+  onOverlayClick(event: MouseEvent) {
+    if ((event.target as HTMLElement).classList.contains('modal-overlay')) {
+      this.closeModal(); // Đóng modal khi click vào overlay
+    }
   }
-  
 }

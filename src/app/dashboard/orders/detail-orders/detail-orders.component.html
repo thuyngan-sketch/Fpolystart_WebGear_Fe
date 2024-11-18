@@ -1,0 +1,19 @@
+<div class="modal-overlay" (click)="onOverlayClick($event)">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <button class="close-btn" (click)="closeModal()">×</button>
+      <h2>Chi tiết Đơn Hàng</h2>
+  
+      <div class="product-info">
+        <div><strong>Mã Khách Hàng</strong> {{ order.userID }}</div>
+        <div><strong>Số Lượng Sản Phẩm</strong> {{ order.totalQuantity}}</div>
+        <div><strong>Tổng Tiền</strong> {{ order.totalPrice}}</div>
+        <div><strong>Phương Thức Thanh Toán</strong> {{ order.paymentMethod}}</div>
+        <div><strong>Trạng Thái</strong> {{ statusLabel }}</div>
+        <div><strong>Ngày Đặt</strong> {{ order.orderDate | date: 'dd/MM/yyyy' }}</div>
+        <div class="actions">
+            <button class="btn btn-primary" (click)="closeModal()">Quay lại</button>
+          </div>
+      </div>
+    </div>
+  </div>
+  
