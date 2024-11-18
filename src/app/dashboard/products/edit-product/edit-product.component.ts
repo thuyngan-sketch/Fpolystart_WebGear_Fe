@@ -5,95 +5,44 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./edit-product.component.css']
 })
 export class EditProductComponent {
-  product = {
-    productName: '',
-    price:'',
-    view:'',
-    quantity:'',
-    weight:'',
-    size:'',
-    led:'Có',
-    batteryCapacity:'',
-    category: 'chuột',
-    description: '',
-    image: ''  
-  };
+  @Input() product: any;  // Nhận thông tin sản phẩm từ parent component (ProductComponent)
+  @Input() showModal: boolean = false;  // Kiểm tra modal có hiển thị không
+  @Output() close = new EventEmitter<void>();  // Đóng modal khi cập nhật xong
 
-previewImage(event: any) {
+  // Xử lý thay đổi hình ảnh
+  previewImage(event: any) {
     const image = document.getElementById('productImage') as HTMLImageElement;
     const defaultIcon = document.getElementById('defaultIcon') as HTMLElement;
 
     image.src = URL.createObjectURL(event.target.files[0]);
     image.style.display = 'block';
     defaultIcon.style.display = 'none';
-}
+  }
 
-saveProduct() {
+  // Lưu thông tin sản phẩm sau khi chỉnh sửa
+  saveProduct() {
+    // Gọi API hoặc xử lý lưu dữ liệu ở đây
     alert('Sản phẩm đã được cập nhật!');
- 
-}
+    this.closeModal();  // Đóng modal sau khi lưu thành công
+  }
 
-cancelEditProduct() {
+  // Hủy chỉnh sửa và đóng modal
+  cancelEditProduct() {
     const confirmation = confirm("Bạn có chắc chắn muốn hủy chỉnh sửa sản phẩm không?");
     if (confirmation) {
-
-        window.location.href = 'products'; 
+      this.closeModal();  // Đóng modal
     }
-}
-
-loadProductData() {
-    const productId = this.getProductId(); 
-    const product = this.getProductById(productId);
- 
-    const image = document.getElementById('productImage') as HTMLImageElement;
-    const defaultIcon = document.getElementById('defaultIcon') as HTMLElement;
-
-    if (product.image) {
-        image.src = product.image;
-        image.style.display = 'block';
-        defaultIcon.style.display = 'none';
-    }
-}
-
-getProductId() {
-
-    return 0;
-}
-
-getProductById(productId: number) {
-
-    return {
-        name: 'Chuột Gaming',
-        category: 'chuột',
-        quantity: 10,
-        dpi: 1600,
-        connection: 'USB',
-        material: 'Nhựa',
-        frequency: 1000,
-        buttonCount: 6,
-        batteryCapacity: 'Không',
-        led: 'Có',
-        switchType: 'Mechanical',
-        description: 'Mô tả sản phẩm',
-        image: ''
-    };
-}
-
-ngOnInit() {
-    this.loadProductData();
-}
-@Input() showModal: boolean = false;
-  @Output() close = new EventEmitter<void>(); 
-
-  closeModal() {
-    this.close.emit(); 
   }
 
-  
+  // Đóng modal
+  closeModal() {
+    this.close.emit();
+  }
+
+  // Nếu người dùng click vào overlay, modal sẽ đóng
   onOverlayClick(event: MouseEvent) {
     if ((event.target as HTMLElement).classList.contains('modal-overlay')) {
-      this.closeModal(); // Đóng modal khi click vào overlay
+      this.closeModal();
     }
   }
-  
 }

@@ -24,6 +24,9 @@ import { EditVouchersComponent } from './dashboard/vouchers/edit-vouchers/edit-v
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TestComponent } from './test/test.component';
 import { DetailProductComponent } from './dashboard/products/detail-product/detail-product.component';
+import { CategoryComponent } from './dashboard/category/category.component';
+import { DetailOrdersComponent } from './dashboard/orders/detail-orders/detail-orders.component';
+import { EditOrdersComponent } from './dashboard/orders/edit-orders/edit-orders.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent }, 
@@ -51,6 +54,9 @@ const routes: Routes = [
   { path: 'feedback', component: FeedbackComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'category', component: CategoryComponent },
+  { path: 'orders/:id', component: DetailOrdersComponent },
+  { path: 'edit-orders/:id', component: EditOrdersComponent },
   { path: 'test', component: TestComponent }
 ];
 

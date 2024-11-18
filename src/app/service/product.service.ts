@@ -59,9 +59,10 @@ export class ProductService {
   // Cập nhật sản phẩm
   updateProduct(id: number, request: any): Observable<any> {
     return this.http.put(`${this.apiUrl}/update`, request, {
-      params: { id: id.toString() }  // Truyền `id` qua query parameter
+      params: { id: id.toString() }
     });
   }
+  
 
   // Xóa sản phẩm
   deleteProduct(id: number): Observable<any> {

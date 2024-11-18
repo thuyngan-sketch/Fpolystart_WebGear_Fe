@@ -32,11 +32,29 @@
                 <td>{{ order.userName }}</td>
                 <td>{{ order.totalQuantity }}</td>
                 <td>{{ order.orderDate | date: 'dd/MM/yyyy' }}</td>               
-                <td>{{ order.totalPrice }}</td>
+                <td>{{order.totalPrice| number:'1.0-0'}} VND</td>
                 <td>{{ getStatusLabel(order.status) }}</td>
                 <td>
-                    <button class="btn btn-info btn-sm" (click)="viewOrder(order.id)"><i class='bx bx-show'></i></button>
-                    <button class="btn btn-warning btn-sm" (click)="editOrder(order.id)" style="margin-left: 4px;"><i class='bx bx-edit'></i></button>
+                    <button class="btn btn-info btn-sm" (click)="openOrderDetailModal(order.id)">
+                        <i class='bx bx-show'></i>
+                      </button>
+                      <app-detail-orders
+                      *ngIf="showModalDetail"
+                      [showModalDetail]="showModalDetail"
+                      [order]="selectedOrderId"
+                      (close)="closeOrderDetailModal()">
+                    </app-detail-orders>
+                    <button class="btn btn-warning btn-sm" (click)="openEditOrderModal(order.id)" style="margin-left: 4px;">
+                        <i class='bx bx-edit'></i>
+                      </button>
+                      
+                      <!-- Modal chỉnh sửa -->
+                      <app-edit-orders 
+                        *ngIf="showModalEdit"
+                        [showModalEdit]="showModalEdit"
+                        [orderId]="selectedOrderId"
+                        (close)="closeEditModal()">
+                      </app-edit-orders>
                 </td>
             </tr>
         </tbody>

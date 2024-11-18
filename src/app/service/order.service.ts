@@ -26,4 +26,12 @@ export class OrderService {
       })
     )
   }
+  getOrderById(orderId: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${orderId}`);
+  }
+
+  // Cập nhật thông tin đơn hàng
+  updateOrder(orderId: string, order: any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/${orderId}`, order);
+  }
 }

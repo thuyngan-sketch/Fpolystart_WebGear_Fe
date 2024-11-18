@@ -32,14 +32,25 @@
                     <td>{{ product.productID }}</td>
                     <td><img [src]="product.avatarProduct" alt="{{ product.productName }}" class="product-image" /></td>
                     <td>{{ product.productName }}</td>
-                    <td>{{ product.price | currency }}</td>
+                    <td>{{ product.price |  number:'1.0-0' }} VND </td>
                     <td>{{ product.quantity }}</td>
                     <td>%</td>
                     <td>{{ product.description }}</td>
                     <td class="action-icons">
-                        <i class='bx bx-show' (click)="viewProductDetail(product.productID)"></i> 
-                        <i class='bx bx-edit' (click)="openModalEdit()"></i>
-                        <app-edit-product [showModal]="showModalEdit" (close)="closeModalEdit()"></app-edit-product> 
+                        <!-- <i class='bx bx-show' (click)="viewProductDetail(product.productID)"></i>  -->
+                         <!-- chưa hiển thị lên được chi tiết sản phẩm -->
+                         <i class='bx bx-show' (click)="openModalDetail(product.productID)"></i>
+            
+            <app-detail-product [showModal]="showModalDetail" 
+                                [product]="productDetail" 
+                                (close)="closeModalDetail()"></app-detail-product>
+                        
+                                <i class='bx bx-edit' (click)="openModalEdit(product.productID)"></i>
+                                <app-edit-product 
+                                [showModal]="showModalEdit" 
+                                [product]="selectedProduct" 
+                                (close)="closeModalEdit()">
+                              </app-edit-product>
                     </td>
                 </tr>
             </tbody>
@@ -49,5 +60,4 @@
         <p>Loading products...</p>
     </ng-template>
 </div> 
-
 
