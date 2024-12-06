@@ -8,30 +8,7 @@ import { ProductService } from 'src/app/service/product.service';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit{
-//   products: any = { Keyboards: [], Mice: [] };
-
-//   constructor(private productService: ProductService) {}
-
-//   ngOnInit(): void {
-//     this.loadProducts();
-//   }
-
-//   loadProducts() {
-//     const keyboardRequest = { page: 1 };  
-//     const mouseRequest = { page: 1 };    
-
-    
-//     this.productService.getAllProducts(keyboardRequest, mouseRequest).subscribe({
-//       next: (results) => {
-//         this.products.Keyboards = results[0]; 
-//         this.products.Mice = results[1];      
-//       },
-//       error: (err) => {
-//         console.error('Có lỗi xảy ra khi lấy dữ liệu:', err);
-//       }
-//     });
-//   }
-//   
+baseUrl: string =  'https://lacdau.com' ;
 products: any[] = []; 
 productDetail: any = null;
 selectedProduct: any = null; 
