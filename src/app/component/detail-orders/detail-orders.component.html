@@ -8,9 +8,9 @@
         <div><strong>Số Lượng Sản Phẩm</strong> {{ order.totalQuantity}}</div>
         <div><strong>Tổng Tiền</strong> {{ order.totalPrice}}</div>
         <div><strong>Phương Thức Thanh Toán</strong> {{ order.paymentMethod}}</div>
-        <div><strong>Trạng Thái</strong> {{ statusLabel }}</div>
+        <div><strong>Trạng Thái</strong> {{ order. status}}</div>
         <div><strong>Ngày Đặt</strong> {{ order.orderDate | date: 'dd/MM/yyyy' }}</div>
-        <div class="actions">
+        <div class="actions"> 
             <button class="btn btn-primary" (click)="closeModal()">Quay lại</button>
           </div>
       </div>

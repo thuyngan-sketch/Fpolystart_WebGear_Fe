@@ -25,7 +25,7 @@ interface Product {
 })
 export class ProductService {
 
-  private apiUrl = 'https://localhost:7249/api/admin/product';  // URL của API C#
+  private apiUrl = 'https://localhost:7249/api/admin/Product';  // URL của API C#
 
   constructor(private http: HttpClient) {}
   // Lấy danh sách sản phẩm

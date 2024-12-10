@@ -4,7 +4,6 @@
   
       <h2>Cập nhật đơn hàng</h2>
   
-      <!-- Form chỉnh sửa đơn hàng -->
       <form (ngSubmit)="saveOrder()">
         <div class="form-group">
           <label for="userID">Mã Khách Hàng</label>
@@ -43,7 +42,6 @@
           <input type="date" id="orderDate" class="form-control" [(ngModel)]="order.orderDate" name="orderDate" required>
         </div>
   
-        <!-- Buttons -->
         <div class="actions">
           <button type="submit" class="btn btn-success">
             <i class="bx bxs-save"></i> Cập nhật Đơn Hàng
