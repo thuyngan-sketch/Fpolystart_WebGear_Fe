@@ -13,7 +13,7 @@
     <button class="btn-add" (click)="openModalAdd()">Thêm Sản Phẩm Mới +</button>
 
     <app-add-products [showModal]="showModalAdd" (close)="closeModalAdd()"></app-add-products> 
-    <div *ngIf="products.length > 0; else loading" class="product-table-wrapper">
+    <div *ngIf="products.length > 0" class="product-table-wrapper">
         <table class="product-table">
             <thead>
                 <tr>
@@ -30,7 +30,7 @@
             <tbody>
                 <tr *ngFor="let product of products">
                     <td>{{ product.productID }}</td>
-                    <td><img [src]="product.avatarProduct" alt="{{ product.productName }}" class="product-image" /></td>
+                    <td><img src="/images/razordav3.jpg" alt="Product Image" width="100"></td>
                     <td>{{ product.productName }}</td>
                     <td>{{ product.price |  number:'1.0-0' }} VND </td>
                     <td>{{ product.quantity }}</td>
@@ -56,8 +56,6 @@
             </tbody>
         </table>
     </div>
-    <ng-template #loading>
-        <p>Loading products...</p>
-    </ng-template>
+    
 </div> 
 

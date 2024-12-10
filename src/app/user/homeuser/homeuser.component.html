@@ -437,14 +437,13 @@
             </li>
         </ul>
 
-        <div class="product-carousel">
-          <!-- Nút Prev -->
+        <!-- <div class="product-carousel">
+   
           <button class="carousel-control-prev" (click)="move('prev')" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
-          
-          <!-- Danh sách sản phẩm -->
+    
           <ul class="product-list" [ngStyle]="{'transform': 'translateX(' + -currentIndex * 332 + 'px)'}">
             <li class="product-item" *ngFor="let product of visibleProducts">
               <div class="product-card" tabindex="0">
@@ -474,12 +473,43 @@
             </li>
           </ul>
         
-          <!-- Nút Next -->
+          
           <button class="carousel-control-next" (click)="move('next')" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
-        </div> 
+        </div>  -->
+        <div class="product-list-container">
+          <button class="carousel-control-prev"  type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <div class="product-list">
+            <div class="product-card" *ngFor="let product of products | slice:currentIndex:currentIndex+4">
+              <div class="product-card-content">
+                <div class="image-container">
+                  <img src="https://via.placeholder.com/200x250" alt="Product Image" class="image-contain">
+                </div>
+                <div class="product-info">
+                  <h3>{{ product.name }}</h3>
+                  <p>{{ product.price | currency }}</p>
+                  <p>Color: {{ product.color }}</p>
+                  <p>Layout: {{ product.layout }}</p>
+                  <p>Case: {{ product.case }}</p>
+                  <p>Switch: {{ product.switch }}</p>
+                  <button class="buy-now-btn" >Buy Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-next"  type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        
+        
+        
     </div>
   </section>
   <div class="hdr">
