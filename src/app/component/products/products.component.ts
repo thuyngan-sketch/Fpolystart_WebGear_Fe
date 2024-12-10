@@ -8,6 +8,7 @@ import { ProductService } from 'src/app/service/product.service';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit{
+baseUrl: string =  'https://lacdau.com' ;
 products: any[] = []; 
 productDetail: any = null;
 selectedProduct: any = null; 
